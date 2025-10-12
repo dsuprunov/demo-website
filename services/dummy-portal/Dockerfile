@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.14-alpine
 
 WORKDIR /app
 
@@ -10,6 +10,4 @@ COPY tests/ tests/
 
 RUN pytest tests/
 
-ENV PORT=3000
-
-CMD ["python", "src/app.py"]
+CMD ["sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-3000}"]
