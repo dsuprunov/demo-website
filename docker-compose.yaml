@@ -1,9 +1,0 @@
-services:
-  dummy-portal:
-    build:
-      context: ./services/dummy-portal
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      - PORT=3000
