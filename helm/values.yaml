@@ -1,0 +1,17 @@
+name: dummy-portal
+
+image:
+  repository: dsuprunov/dummy-portal
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 3000
+
+ingress:
+  enabled: false
+
+env:
+  - name: PORT
+    value: "3000"
