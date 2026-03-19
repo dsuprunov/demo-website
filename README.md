@@ -1,4 +1,6 @@
 ```bash
+docker login dhi.io
+
 docker compose up --build
 
 docker build -t dsuprunov/dummy-portal:latest . --no-cache
