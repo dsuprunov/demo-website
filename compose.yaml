@@ -1,5 +1,7 @@
 services:
   demo-portal:
+    container_name: demo-portal
+    image: dsuprunov/demo-portal:latest
     build:
       context: .
       dockerfile: Dockerfile
