@@ -1,5 +1,5 @@
 services:
-  dummy-portal:
+  demo-portal:
     build:
       context: .
       dockerfile: Dockerfile
