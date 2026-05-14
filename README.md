@@ -3,18 +3,18 @@ docker login dhi.io
 
 docker compose up --build
 
-docker build -t dsuprunov/demo-portal:latest . --no-cache
+docker build -t dsuprunov/demo-website:latest . --no-cache
 
-docker push dsuprunov/demo-portal:latest
+docker push dsuprunov/demo-website:latest
 ```
 
 ```bash
-helm template demo-portal ./helm/ --namespace demo-portal
+helm template demo-website ./helm/ --namespace demo-website
 
-helm upgrade --install demo-portal ./helm/ --namespace demo-portal --create-namespace
+helm upgrade --install demo-website ./helm/ --namespace demo-website --create-namespace
 
-kubectl -n demo-portal get pods -o wide
+kubectl -n demo-website get pods -o wide
 
-kubectl -n demo-portal get services
+kubectl -n demo-website get services
 ```
 

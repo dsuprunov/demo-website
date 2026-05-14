@@ -1,7 +1,7 @@
-name: demo-portal
+name: demo-website
 
 image:
-  repository: dsuprunov/demo-portal
+  repository: dsuprunov/demo-website
   tag: latest
   pullPolicy: Always
 
