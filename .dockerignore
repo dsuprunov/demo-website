@@ -1,0 +1,9 @@
+.git
+.gitignore
+.idea
+
+charts
+dist
+
+README.md
+compose.yaml

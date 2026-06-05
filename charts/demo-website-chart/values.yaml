@@ -1,0 +1,33 @@
+name: demo-website
+
+replicaCount: 1
+
+image:
+  repository: dsuprunov/demo-website
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3000
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+
+resources:
+  requests:
+    cpu: 25m
+    memory: 128Mi
+  limits:
+    cpu: 100m
+    memory: 256Mi
+
+env:
+  - name: PORT
+    value: "3000"

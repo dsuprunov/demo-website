@@ -1,0 +1,9 @@
+apiVersion: v2
+name: demo-website-chart
+description: Helm chart for demo-website
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+maintainers:
+  - name: Dmitry Suprunov
+    email: dsuprunov@gmail.com
