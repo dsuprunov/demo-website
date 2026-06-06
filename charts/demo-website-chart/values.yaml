@@ -4,7 +4,7 @@ replicaCount: 1
 
 image:
   repository: dsuprunov/demo-website
-  tag: "1.0.1"
+  tag: "1.0.2"
   pullPolicy: IfNotPresent
 
 service:
@@ -31,9 +31,3 @@ resources:
 env:
   - name: PORT
     value: "3000"
-  - name: APP_COLOR
-    value: unknown
-  - name: APP_VERSION
-    value: "1.0.1"
-  - name: IMAGE_TAG
-    value: "1.0.1"

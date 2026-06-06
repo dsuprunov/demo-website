@@ -1,4 +1,3 @@
-import pytest
 from fastapi.testclient import TestClient
 from src.main import app
 
@@ -12,9 +11,12 @@ def test_root():
     assert response.headers["content-type"].lower().startswith("application/json")
 
     data = response.json()
-    assert "app_color" in data
-    assert "app_version" in data
-    assert "image_tag" in data
+    assert set(data) == {
+        "timestamp",
+        "server_name",
+        "server_address",
+        "uri",
+    }
 
 
 def test_healtz():
