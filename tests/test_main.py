@@ -11,6 +11,11 @@ def test_root():
 
     assert response.headers["content-type"].lower().startswith("application/json")
 
+    data = response.json()
+    assert "app_color" in data
+    assert "app_version" in data
+    assert "image_tag" in data
+
 
 def test_healtz():
     client = TestClient(app)

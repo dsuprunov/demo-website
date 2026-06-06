@@ -15,6 +15,9 @@ def root(request: Request):
         "server_name": os.environ.get("HOSTNAME") or socket.gethostname(),
         "server_address": ":".join(map(str, request.scope.get("server"))),
         "uri": request.url.path,
+        "app_color": os.environ.get("APP_COLOR", "unknown"),
+        "app_version": os.environ.get("APP_VERSION", "unknown"),
+        "image_tag": os.environ.get("IMAGE_TAG", "unknown"),
     }
 
 

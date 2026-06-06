@@ -14,21 +14,35 @@ spec:
       labels:
         app: {{ .Values.name | quote }}
     spec:
+{{- with .Values.podSecurityContext }}
       securityContext:
-{{- toYaml .Values.podSecurityContext | nindent 8 }}
+{{- toYaml . | nindent 8 }}
+{{- end }}
       containers:
         - name: {{ .Values.name | quote }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+{{- with .Values.containerSecurityContext }}
           securityContext:
-{{- toYaml .Values.containerSecurityContext | nindent 12 }}
+{{- toYaml . | nindent 12 }}
+{{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
 {{- with .Values.env }}
           env:
 {{- toYaml . | nindent 12 }}
 {{- end }}
+{{- with .Values.resources }}
           resources:
-{{- toYaml .Values.resources | nindent 12 }}
+{{- toYaml . | nindent 12 }}
+{{- end }}

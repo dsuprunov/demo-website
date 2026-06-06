@@ -1,7 +1,7 @@
 services:
   demo-website:
     container_name: demo-website
-    image: dsuprunov/demo-website:1.0.0
+    image: dsuprunov/demo-website:1.0.1
     build:
       context: .
       dockerfile: Dockerfile
